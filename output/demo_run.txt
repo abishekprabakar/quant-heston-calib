@@ -1,0 +1,38 @@
+Synthetic surface: 54 quotes over 6 maturities, 25 bp vol noise, S=100.0, r=0.035, q=0.013
+Levenberg-Marquardt converged in 7 iterations (0.29 s)
+
+ param     truth    fitted   std err      z
+    v0    0.0350    0.0347    0.0003  -1.11
+ kappa    1.8000    1.7585    0.1078  -0.38
+ theta    0.0550    0.0562    0.0010   1.20
+ sigma    0.6500    0.6421    0.0154  -0.51
+   rho   -0.7200   -0.7193    0.0059   0.12
+
+Feller ratio 2*kappa*theta/sigma^2: truth 0.469, fitted 0.479
+IV fit: RMSE 23.6 bp, max |err| 62.3 bp (noise injected: 25 bp)
+cond(J^T J) = 2.68e+05
+parameter correlation matrix:
+             v0   kappa   theta   sigma     rho
+     v0    1.00    0.00   -0.18   -0.08   -0.21
+  kappa    0.00    1.00   -0.89    0.73   -0.02
+  theta   -0.18   -0.89    1.00   -0.46    0.07
+  sigma   -0.08    0.73   -0.46    1.00    0.34
+    rho   -0.21   -0.02    0.07    0.34    1.00
+
+     T  ATM mkt  ATM fit  skew(±0.1√T) mkt     fit  RMSE bp
+ 0.083   0.1853   0.1832            0.0359  0.0342     21.6
+ 0.250   0.1797   0.1799            0.0501  0.0488     12.9
+ 0.500   0.1795   0.1806            0.0536  0.0531     20.7
+ 1.000   0.1885   0.1861            0.0510  0.0532     25.4
+ 2.000   0.1943   0.1953            0.0481  0.0484     21.2
+ 3.000   0.2071   0.2009            0.0480  0.0444     34.6
+
+Monte Carlo (Andersen QE, 50 steps, 400k antithetic paths) vs Fourier, T=1.0:
+     K    Fourier         MC   MC s.e.  diff/se
+    80    23.3555    23.3360    0.0161    -1.22
+    90    15.3797    15.3644    0.0139    -1.10
+   100     8.5991     8.5820    0.0117    -1.47
+   110     3.6929     3.6799    0.0092    -1.41
+   120     1.1428     1.1348    0.0059    -1.36
+
+wrote output/smile_fit.png and output/mc_check.png
